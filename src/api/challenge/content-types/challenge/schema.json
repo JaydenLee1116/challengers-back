@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "challenges",
+  "info": {
+    "singularName": "challenge",
+    "pluralName": "challenges",
+    "displayName": "challenge",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "Deposit": {
+      "type": "integer",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "periodWeeks": {
+      "type": "integer",
+      "required": true
+    },
+    "correctImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "private": true
+    },
+    "customers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::customer.customer",
+      "inversedBy": "challenges"
+    },
+    "challengeType": {
+      "type": "integer",
+      "default": 8,
+      "required": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
